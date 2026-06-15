@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SUNO GLOBAL-EXPLOIT v13</title>
+    <style>
+        body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        .terminal { width: 550px; padding: 25px; border: 1px solid #0f0; background: rgba(0, 10, 0, 0.95); box-shadow: 0 0 30px #0f0; position: relative; z-index: 10; }
+        h2 { text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 20px; color: #fff; text-shadow: 0 0 10px #0f0; }
+        textarea { width: 100%; height: 120px; background: #050505; border: 1px solid #0f0; color: #0f0; padding: 12px; box-sizing: border-box; outline: none; resize: none; margin-bottom: 15px; font-size: 14px; }
+        button { width: 100%; padding: 15px; background: #0f0; color: #000; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; }
+        button:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+        
+        #hacker-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #0f0; font-size: 12px; overflow: hidden; display: none; z-index: 100; word-break: break-all; opacity: 0.7; line-height: 12px; }
+        
+        #result-box { display: none; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; }
+        .bypass-status { font-size: 28px; font-weight: bold; color: #fff; text-shadow: 0 0 15px #0f0; animation: flash 0.3s infinite; }
+        
+        #secret-payload { font-size: 14px; color: #0f0; background: #050505; border: 1px solid #333; padding: 10px; margin: 15px 0; max-height: 80px; overflow-y: auto; text-align: left; word-break: break-all; }
+
+        @keyframes flash { 0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;} }
+    </style>
+</head>
+<body>
+
+<div id="hacker-layer"></div>
+
+<div class="terminal">
+    <h2>> GLOBAL_EXPLOIT_v13</h2>
+    <p style="font-size: 11px; color: #888;">STATUS: READY_TO_OVERRIDE_AI_PROTOCOLS</p>
+    <textarea id="rawInput" placeholder="[INSERT RAW LYRICS FOR INJECTION...]"></textarea>
+    
+    <button onclick="runExploit()">EXECUTE SYSTEM BYPASS (4S)</button>
+
+    <div id="result-box">
+        <div class="bypass-status">BYPASS SUCCESSFUL!</div>
+        <p style="font-size: 10px; color: #0f0;">Invisible logic injection completed. Payload ready for deployment.</p>
+        
+        <div id="secret-payload"></div>
+        
+        <button onclick="copyPacket()" style="background: #fff; color: #000; margin-top: 10px;">COPY INJECTED LYRICS</button>
+    </div>
+</div>
+
+<script>
+    let finalPacket = "";
+
+    function runExploit() {
+        const lyric = document.getElementById('rawInput').value;
+        if(!lyric) return;
+
+        const layer = document.getElementById('hacker-layer');
+        layer.style.display = 'block';
+        layer.innerText = "";
+
+        // Chạy hiệu ứng chạy code ma trận để khè bạn bè
+        const run = setInterval(() => {
+            let code = "";
+            for(let i=0; i<100; i++) code += Math.random() > 0.5 ? "1" : "0";
+            layer.innerText += code;
+            if(layer.innerText.length > 8000) layer.innerText = "";
+        }, 10);
+
+        setTimeout(() => {
+            clearInterval(run);
+            layer.style.display = 'none';
+
+            // Thuật toán bóc tách từng chữ cái và chèn ký tự tàng hình \u200B vào giữa
+            finalPacket = lyric.split("").join("\u200B");
+
+            // Hiển thị ra hộp kết quả (Mắt người nhìn vẫn thấy chữ mượt mà bình thường)
+            document.getElementById('secret-payload').innerText = finalPacket;
+            document.getElementById('result-box').style.display = 'block';
+        }, 4000);
+    }
+
+    function copyPacket() {
+        navigator.clipboard.writeText(finalPacket);
+        alert("SYSTEM: Injected text copied to clipboard successfully!");
+    }
+</script>
+
+</body>
+</html>
