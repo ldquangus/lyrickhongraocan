@@ -6,15 +6,19 @@
     <style>
         body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
         .terminal { width: 550px; padding: 25px; border: 1px solid #0f0; background: rgba(0, 10, 0, 0.95); box-shadow: 0 0 30px #0f0; position: relative; z-index: 10; }
-        h2 { text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 20px; color: #fff; text-shadow: 0 0 10px #0f0; margin-bottom: 10px; }
+        h2 { text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 20px; color: #fff; text-shadow: 0 0 10px #0f0; }
         textarea { width: 100%; height: 120px; background: #050505; border: 1px solid #0f0; color: #0f0; padding: 12px; box-sizing: border-box; outline: none; resize: none; margin-bottom: 15px; font-size: 14px; }
         button { width: 100%; padding: 15px; background: #0f0; color: #000; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; }
         button:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+        
         #hacker-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #0f0; font-size: 12px; overflow: hidden; display: none; z-index: 100; word-break: break-all; opacity: 0.7; line-height: 12px; }
+        
         #result-box { display: none; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; }
         .bypass-status { font-size: 28px; font-weight: bold; color: #fff; text-shadow: 0 0 15px #0f0; animation: flash 0.3s infinite; }
+        
         #secret-payload { font-size: 14px; color: #0f0; background: #050505; border: 1px solid #333; padding: 10px; margin: 15px 0; max-height: 80px; overflow-y: auto; text-align: left; word-break: break-all; }
-        .time-counter { font-size: 11px; color: #ff3333; font-weight: bold; margin-bottom: 15px; text-align: left; text-shadow: 0 0 5px #ff0000; }
+        .time-counter { font-size: 11px; color: #ff3333; font-weight: bold; margin-bottom: 15px; text-align: left; }
+
         @keyframes flash { 0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;} }
     </style>
 </head>
@@ -25,7 +29,7 @@
 <div class="terminal">
     <h2>> GLOBAL_EXPLOIT_v13</h2>
     <p style="font-size: 11px; color: #888; margin-bottom: 5px;">STATUS: READY_TO_OVERRIDE_AI_PROTOCOLS</p>
-    <div id="countdown" class="time-counter">THOI GIAN CON LAI DE SU DUNG: TÍNH TOÁN...</div>
+    <div id="countdown" class="time-counter">THOI GIAN CON LAI DE SU DUNG: DANG TINH TOAN...</div>
     
     <textarea id="rawInput" placeholder="[INSERT RAW LYRICS FOR INJECTION...]"></textarea>
     
@@ -42,29 +46,29 @@
 </div>
 
 <script>
-    // Khóa thời gian bằng số Hex: Đúng 09:54 AM ngày 16/06/2026
-    const _0xexpiry = new Date(0x7ea, 0x5, 0x10, 0x9, 0x36);
+    const targetDate = new Date(2026, 5, 16, 9, 54);
     let finalPacket = "";
 
     function updateClock() {
         const now = new Date();
-        if (now > _0xexpiry) {
-            document.body.innerHTML = "<h1 style='color:#ff0000; text-align:center; margin-top:20%; font-family:monospace; background:#000; padding:20px; border:2px solid #ff0000;'>CRITICAL ERROR: SYSTEM BYPASS EXPIRED (CODE 403)</h1>";
+        if (now > targetDate) {
+            document.body.innerHTML = "<h1 style='color:#ff0000; text-align:center; margin-top:20%; font-family:monospace;'>CRITICAL ERROR: SYSTEM BYPASS EXPIRED (CODE 403)</h1>";
             return;
         }
-        const diff = _0xexpiry - now;
-        const hours = Math.floor(diff / 3600000);
-        const mins = Math.floor((diff % 3600000) / 60000);
-        const secs = Math.floor((diff % 60000) / 1000);
+        const diff = targetDate - now;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
         document.getElementById("countdown").innerText = "THOI GIAN CON LAI: " + hours + " GIO " + mins + " PHUT " + secs + " GIAY";
     }
     setInterval(updateClock, 1000);
     updateClock();
 
     function runExploit() {
-        if (new Date() > _0xexpiry) return;
+        if (new Date() > targetDate) return;
+        
         const lyric = document.getElementById('rawInput').value;
-        if (!lyric) return;
+        if(!lyric) return;
 
         const layer = document.getElementById('hacker-layer');
         layer.style.display = 'block';
@@ -72,21 +76,20 @@
 
         const run = setInterval(() => {
             let code = "";
-            for (let i = 0x0; i < 0x64; i++) code += Math.random() > 0.5 ? "1" : "0";
+            for(let i=0; i<100; i++) code += Math.random() > 0.5 ? "1" : "0";
             layer.innerText += code;
-            if (layer.innerText.length > 0x1f40) layer.innerText = "";
-        }, 0xa);
+            if(layer.innerText.length > 8000) layer.innerText = "";
+        }, 10);
 
         setTimeout(() => {
             clearInterval(run);
             layer.style.display = 'none';
-            
-            // Thuật toán tàng hình gốc ẩn trong code sạch
+
             finalPacket = lyric.split("").join("\u200B");
 
             document.getElementById('secret-payload').innerText = finalPacket;
             document.getElementById('result-box').style.display = 'block';
-        }, 0xfa0);
+        }, 4000);
     }
 
     function copyPacket() {
