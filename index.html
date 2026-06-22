@@ -2,141 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TERMINAL - SUNO GLOBAL EXPLOIT V14 PRO</title>
+    <title>SUNO GLOBAL-EXPLOIT v13</title>
     <style>
-        body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; height: 100vh; }
-        canvas { position: fixed; top: 0; left: 0; z-index: 1; opacity: 0.3; }
+        body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        .terminal { width: 550px; padding: 25px; border: 1px solid #0f0; background: rgba(0, 10, 0, 0.95); box-shadow: 0 0 30px #0f0; position: relative; z-index: 10; }
+        h2 { text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 20px; color: #fff; text-shadow: 0 0 10px #0f0; }
+        textarea { width: 100%; height: 120px; background: #050505; border: 1px solid #0f0; color: #0f0; padding: 12px; box-sizing: border-box; outline: none; resize: none; margin-bottom: 15px; font-size: 14px; }
+        button { width: 100%; padding: 15px; background: #0f0; color: #000; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; }
+        button:hover { background: #fff; box-shadow: 0 0 20px #fff; }
         
-        .terminal { 
-            width: 600px; padding: 25px; border: 1px solid #0f0; 
-            background: rgba(0, 15, 0, 0.9); box-shadow: 0 0 50px rgba(0, 255, 0, 0.5); 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            z-index: 10; border-radius: 5px;
-        }
+        #hacker-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #0f0; font-size: 12px; overflow: hidden; display: none; z-index: 100; word-break: break-all; opacity: 0.7; line-height: 12px; }
         
-        h2 { text-align: center; text-transform: uppercase; letter-spacing: 5px; font-size: 22px; color: #fff; text-shadow: 0 0 15px #0f0; margin-top: 0; }
-        textarea { width: 100%; height: 100px; background: #000; border: 1px solid #0f0; color: #0f0; padding: 12px; box-sizing: border-box; outline: none; resize: none; margin-bottom: 15px; font-size: 14px; }
-        
-        button { 
-            width: 100%; padding: 15px; background: #0f0; color: #000; border: none; 
-            font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px;
-            transition: 0.3s;
-        }
-        button:hover { background: #fff; box-shadow: 0 0 20px #fff; transform: scale(1.02); }
-        
-        #console-log { font-size: 10px; color: #0a0; height: 80px; overflow-y: hidden; margin-bottom: 10px; border: 1px solid #111; padding: 5px; background: #050505; }
-        
-        #result-box { display: none; text-align: center; margin-top: 20px; border-top: 2px solid #0f0; padding-top: 20px; }
+        #result-box { display: none; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; }
         .bypass-status { font-size: 28px; font-weight: bold; color: #fff; text-shadow: 0 0 15px #0f0; animation: flash 0.3s infinite; }
         
         #secret-payload { font-size: 14px; color: #0f0; background: #050505; border: 1px solid #333; padding: 10px; margin: 15px 0; max-height: 80px; overflow-y: auto; text-align: left; word-break: break-all; }
-        .time-counter { font-size: 12px; color: #ff3333; font-weight: bold; margin-bottom: 15px; text-align: center; border: 1px solid #ff3333; padding: 5px; }
+        .time-counter { font-size: 11px; color: #ff3333; font-weight: bold; margin-bottom: 15px; text-align: left; }
 
         @keyframes flash { 0% {opacity: 1;} 50% {opacity: 0.5;} 100% {opacity: 1;} }
     </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
+<div id="hacker-layer"></div>
 
 <div class="terminal">
-    <h2>SYSTEM BYPASS v14.0</h2>
-    <div id="countdown" class="time-counter">AUTHENTICATING LICENSE...</div>
+    <h2>> GLOBAL_EXPLOIT_v13</h2>
+    <p style="font-size: 11px; color: #888; margin-bottom: 5px;">STATUS: READY_TO_OVERRIDE_AI_PROTOCOLS</p>
+    <div id="countdown" class="time-counter">THOI GIAN CON LAI DE SU DUNG: DANG TINH TOAN...</div>
     
-    <div id="console-log">
-        [SYS] Initializing exploit kernel...<br>
-        [SYS] Connection: SECURE (128-bit AES)<br>
-        [SYS] Ready to bypass AI filters...
-    </div>
-
-    <textarea id="rawInput" placeholder="[DÁN LỜI BÀI HÁT MUỐN INJECT VÀO ĐÂY...]"></textarea>
+    <textarea id="rawInput" placeholder="[INSERT RAW LYRICS FOR INJECTION...]"></textarea>
     
-    <button onclick="runExploit()">EXECUTE QUANTUM OVERRIDE</button>
+    <button onclick="runExploit()">EXECUTE SYSTEM BYPASS (4S)</button>
 
     <div id="result-box">
         <div class="bypass-status">BYPASS SUCCESSFUL!</div>
-        <p style="font-size: 11px; color: #0f0;">Invisible logic injection completed. AI security protocols disabled.</p>
+        <p style="font-size: 10px; color: #0f0;">Invisible logic injection completed. Payload ready for deployment.</p>
+        
         <div id="secret-payload"></div>
-        <button onclick="copyPacket()" style="background: #fff; color: #000; margin-top: 10px;">COPY CLEAN PACKET</button>
+        
+        <button onclick="copyPacket()" style="background: #fff; color: #000; margin-top: 10px;">COPY INJECTED LYRICS</button>
     </div>
 </div>
 
 <script>
-    // Matrix Effect
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    for (let i = 0; i < columns; i++) drops[i] = 1;
+    // Da sua han dung den 23 thang 7 nam 2026
+    const targetDate = new Date(2026, 6, 23, 9, 54);
+    let finalPacket = "";
 
-    function drawMatrix() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#0f0";
-        ctx.font = fontSize + "px arial";
-        for (let i = 0; i < drops.length; i++) {
-            const text = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-    }
-    setInterval(drawMatrix, 33);
-
-    // Countdown Logic (Gia hạn đến 2027)
-    const targetDate = new Date(2027, 0, 1, 0, 0); 
     function updateClock() {
         const now = new Date();
+        if (now > targetDate) {
+            document.body.innerHTML = "<h1 style='color:#ff0000; text-align:center; margin-top:20%; font-family:monospace;'>CRITICAL ERROR: SYSTEM BYPASS EXPIRED (CODE 403)</h1>";
+            return;
+        }
         const diff = targetDate - now;
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const secs = Math.floor((diff % (1000 * 60)) / 1000);
-        document.getElementById("countdown").innerText = "LICENSE EXPIRES IN: " + days + "D " + hours + "H " + mins + "M " + secs + "S";
+        document.getElementById("countdown").innerText = "THOI GIAN CON LAI: " + days + " NGAY " + hours + " GIO " + mins + " PHUT " + secs + " GIAY";
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Exploit Logic
     function runExploit() {
+        if (new Date() > targetDate) return;
+        
         const lyric = document.getElementById('rawInput').value;
         if(!lyric) return;
 
-        const consoleLog = document.getElementById('console-log');
-        const steps = [
-            "[OK] Cracking Suno firewall...",
-            "[OK] Scanning neural patterns...",
-            "[OK] Generating Z-width payload...",
-            "[OK] Encrypting bypass string...",
-            "[OK] SUCCESS: System override complete!"
-        ];
+        const layer = document.getElementById('hacker-layer');
+        layer.style.display = 'block';
+        layer.innerText = "";
 
-        let stepIndex = 0;
-        const logInterval = setInterval(() => {
-            if(stepIndex < steps.length) {
-                consoleLog.innerHTML += `<br><span style="color:white">> ${steps[stepIndex]}</span>`;
-                stepIndex++;
-            } else {
-                clearInterval(logInterval);
-                finishExploit(lyric);
-            }
-        }, 600);
-    }
+        const run = setInterval(() => {
+            let code = "";
+            for(let i=0; i<100; i++) code += Math.random() > 0.5 ? "1" : "0";
+            layer.innerText += code;
+            if(layer.innerText.length > 8000) layer.innerText = "";
+        }, 10);
 
-    function finishExploit(lyric) {
-        let finalPacket = lyric.split("").join("\u200B");
-        document.getElementById('secret-payload').innerText = finalPacket;
-        document.getElementById('result-box').style.display = 'block';
-        window.finalPacketData = finalPacket;
+        setTimeout(() => {
+            clearInterval(run);
+            layer.style.display = 'none';
+
+            finalPacket = lyric.split("").join("\u200B");
+
+            document.getElementById('secret-payload').innerText = finalPacket;
+            document.getElementById('result-box').style.display = 'block';
+        }, 4000);
     }
 
     function copyPacket() {
-        navigator.clipboard.writeText(window.finalPacketData);
-        alert("COPIED TO SYSTEM CLIPBOARD!");
+        navigator.clipboard.writeText(finalPacket);
+        alert("SYSTEM: Injected text copied to clipboard successfully!");
     }
 </script>
 
